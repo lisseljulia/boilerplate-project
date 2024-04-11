@@ -1,0 +1,45 @@
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+@import 'base/reset';
+@import 'base/typography';
+
+@import 'layout/header';
+@import 'layout/footer';
+
+@import 'components/accessibility';
+@import 'components/buttons';
+
+@import 'pages/home';
+
+
+
+.flex-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    gap: 1rem;
+
+    /* Denna kod ska läggas till på lämpligt ställe ex i en komponent partial */
+    /* Om ni vill använda gap och vill att det blir smooth med mellanrummen använd denna uträkning */
+    /* https://wiryawanadipa.com/blog/calculate-percentage-width-of-flex-items-when-using-gap/ */
+    /* flex: 0 0 calc((100% / 3) - (((3 - 1) / 3) * 1rem)); */
+    .flex-item {
+        --flex-items: 1;
+        background-color: hotpink;
+        border: 1px solid red;
+        flex: 0 0 calc((100% / var(--flex-items)) - (((var(--flex-items) - 1) / var(--flex-items)) * var(--flex-gap)));
+
+        @media (min-width:520px) {
+            --flex-items: 2;
+            flex: 0 0 calc((100% / var(--flex-items)) - (((var(--flex-items) - 1) / var(--flex-items)) * var(--flex-gap)));
+        }
+
+        @media (min-width:920px) {
+            --flex-items: 3;
+            flex: 0 0 calc((100% / var(--flex-items)) - (((var(--flex-items) - 1) / var(--flex-items)) * var(--flex-gap)));
+        }
+    }
+}
