@@ -20,7 +20,7 @@
     display: flex;
     flex-wrap: wrap;
     padding: 1rem;
-    gap: 1rem;
+    gap: var(--flex-gap);
 
     /* Denna kod ska läggas till på lämpligt ställe ex i en komponent partial */
     /* Om ni vill använda gap och vill att det blir smooth med mellanrummen använd denna uträkning */
@@ -34,12 +34,10 @@
 
         @media (min-width:520px) {
             --flex-items: 2;
-            flex: 0 0 calc((100% / var(--flex-items)) - (((var(--flex-items) - 1) / var(--flex-items)) * var(--flex-gap)));
         }
 
         @media (min-width:920px) {
             --flex-items: 3;
-            flex: 0 0 calc((100% / var(--flex-items)) - (((var(--flex-items) - 1) / var(--flex-items)) * var(--flex-gap)));
         }
     }
 }
